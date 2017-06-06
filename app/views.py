@@ -12,6 +12,29 @@ redirectUrl = 'http://127.0.0.1:5000/index'
 
 
 
+@app.route('/sga', methods=['GET', 'POST'])
+def setupgiveaway():
+	if request.method == 'POST':
+		#gather the data from the form
+		igLinkUrl = request.form['igimageurl']
+		gaTitle = request.form['gatitle']
+		gaType = request.form['gatype']
+		description = request.form['description']
+		userTZ = request.form['usertz']
+
+		return render_template('giveawayconfirm.html', 
+								ig_embed_url = igLinkUrl,
+								ga_title = gaTitle,
+								ga_description = description,
+								ga_timezone = userTZ
+								)
+		return igLinkUrl
+	else:
+		return render_template('giveawayform.html')
+
+
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()

@@ -1,0 +1,33 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <form class="form-labels-on-top" method="post" name="gaconfirm" action="/sga">
+        <div class="form-title-row">
+                <h1>Confirm the Giveaway</h1>
+        </div>
+        <div class="form-row">
+            <label>
+                <img src="{{ ig_embed_url }}"
+            </label>
+        </div>
+        <div class="form-row">
+                <label>
+                    {{ ga_title }}
+                </label>
+            </div>
+        <div class="form-row">
+            <label>
+                     {{ ga_description }}
+            </label>
+        </div>
+        <div class="form-row">
+              <label>
+                      {{ ga_timezone }}
+              </label>
+          </div>
+          <div class="form-row">
+                <button type="submit">Submit</button>
+          </div>
+  </form>
+{% endblock %}

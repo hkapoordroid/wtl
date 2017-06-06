@@ -2,22 +2,56 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1>Setup a Giveaway!</h1>
-    <form action="" method="post" name="gaform">
-      {{ gaform.hidden_tag() }}
-      <p>
-          Enter the link of the image:<br>
-          {{ gaform.url(size=80) }}<br>
-          {% for error in gaform.url.errors %}
-          <span style="color:red;">[{{ error }}]</span>
-          {% endfor %}<br />
-      </p>
-      <p>
-          Select what are you giving away:<br>
-          {{ gaform.selection }}
-
-          {{ gaform.remember_me }} Remember Me
-      </p>
-      <p><input type="submit" value="Sign In"></p>
-    </form>
+  <form class="form-labels-on-top" method="post" name="gaform" action="/sga">
+        <div class="form-title-row">
+                <h1>Setup a Giveaway</h1>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>Link to IG Image : </span>
+                <input type="text" name="igimageurl">
+            </label>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>Title of the giveaway : </span>
+                <input type="text" name="gatitle">
+            </label>
+        </div>
+        <div class="form-row">
+                <label>
+                    <span>Dropdown</span>
+                    <select name="gatype">
+                        <option>Clothes</option>
+                        <option>Shoes</option>
+                        <option>Handbag</option>
+                        <option>Watch</option>
+                    </select>
+                </label>
+            </div>
+        <div class="form-row">
+            <label>
+                <span>Describe the giveaway : </span>
+                <textarea rows="5" cols="50" name="description"></textarea>
+            </label>
+        </div>
+        <div class="form-row">
+              <label>
+                  <span>Timezone</span>
+                  <select name="usertz">
+                        <option timeZoneId="3" gmtAdjustment="GMT-10:00" useDaylightTime="0" value="-10">(GMT-10:00) Hawaii</option>
+                        <option timeZoneId="4" gmtAdjustment="GMT-09:00" useDaylightTime="1" value="-9">(GMT-09:00) Alaska</option>
+                        <option timeZoneId="5" gmtAdjustment="GMT-08:00" useDaylightTime="1" value="-8">(GMT-08:00) Pacific Time (US & Canada)</option>
+                        <option timeZoneId="6" gmtAdjustment="GMT-08:00" useDaylightTime="1" value="-8">(GMT-08:00) Tijuana, Baja California</option>
+                        <option timeZoneId="7" gmtAdjustment="GMT-07:00" useDaylightTime="0" value="-7">(GMT-07:00) Arizona</option>
+                        <option timeZoneId="8" gmtAdjustment="GMT-07:00" useDaylightTime="1" value="-7">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
+                        <option timeZoneId="9" gmtAdjustment="GMT-07:00" useDaylightTime="1" value="-7">(GMT-07:00) Mountain Time (US & Canada)</option>
+                        <option timeZoneId="10" gmtAdjustment="GMT-06:00" useDaylightTime="0" value="-6">(GMT-06:00) Central America</option>
+                  </select>
+              </label>
+          </div>
+          <div class="form-row">
+                <button type="submit">Continue</button>
+          </div>
+  </form>
 {% endblock %}
