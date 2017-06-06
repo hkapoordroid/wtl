@@ -1,0 +1,23 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Setup a Giveaway!</h1>
+    <form action="" method="post" name="gaform">
+      {{ gaform.hidden_tag() }}
+      <p>
+          Enter the link of the image:<br>
+          {{ gaform.url(size=80) }}<br>
+          {% for error in gaform.url.errors %}
+          <span style="color:red;">[{{ error }}]</span>
+          {% endfor %}<br />
+      </p>
+      <p>
+          Select what are you giving away:<br>
+          {{ gaform.selection }}
+
+          {{ gaform.remember_me }} Remember Me
+      </p>
+      <p><input type="submit" value="Sign In"></p>
+    </form>
+{% endblock %}
