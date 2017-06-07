@@ -1,0 +1,42 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <form class="form-labels-on-top" method="post" name="gaform" action="/sga" enctype="multipart/form-data">
+        <div class="form-title-row">
+                <h1>Setup a Giveaway</h1>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>Upload Image : </span>
+                <input type="file" name="igimage">
+            </label>
+        </div>
+        <div class="form-row">
+            <label>
+                <span>Title of the giveaway : </span>
+                <input type="text" name="gatitle">
+            </label>
+        </div>
+        <div class="form-row">
+                <label>
+                    <span>Dropdown</span>
+                    <select name="gatype">
+                        <option>Clothes</option>
+                        <option>Shoes</option>
+                        <option>Handbag</option>
+                        <option>Watch</option>
+                    </select>
+                </label>
+            </div>
+        <div class="form-row">
+            <label>
+                <span>Describe the giveaway : </span>
+                <textarea rows="5" cols="50" name="description"></textarea>
+            </label>
+        </div>
+        <div class="form-row">
+            <button type="submit">Continue</button>
+        </div>
+  </form>
+{% endblock %}
